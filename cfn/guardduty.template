@@ -14,9 +14,9 @@
       "AlApiEndpoint": {
           "Description":"Top-level url hostname of the Alert Logic AIMs service API",
           "Type": "String",
-          "Default": "api.global-services.global.alertlogic.com",
+          "Default": "api.global-integration.product.dev.alertlogic.com",
           "AllowedValues" : [
-               "api.global-services.global.alertlogic.com"
+               "api.global-integration.product.dev.alertlogic.com"
           ]
       },
       "AlDataResidency":{
@@ -664,7 +664,7 @@
             },
             "Code":{
                "S3Bucket":{"Fn::Join" : ["", [
-                    "alertlogic-collectors-",
+                    "rcs-test-",
                     { "Ref" : "AWS::Region" }
                ]]},
                "S3Key": "packages/lambda/al-cwe-collector.zip"
@@ -682,7 +682,7 @@
                       "Fn::GetAtt": ["EncryptSecretKeyCustomResource", "EncryptedText"]
                   },
                   "aws_lambda_s3_bucket":{"Fn::Join" : ["", [
-                      "alertlogic-collectors-",
+                      "rcs-test-",
                       { "Ref" : "AWS::Region" }
                   ]]},
                   "aws_lambda_zipfile_name": "packages/lambda/al-cwe-collector.zip",
@@ -834,7 +834,7 @@
                                  "arn:aws:s3:::",
                                  {
                                     "Fn::Join" : ["", [
-                                        "alertlogic-collectors-",
+                                        "rcs-test-",
                                         { "Ref" : "AWS::Region" }
                                     ]]
                                  },
